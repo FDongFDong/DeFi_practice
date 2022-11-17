@@ -9,6 +9,7 @@
   - [대출(Lending)](#대출lending)
   - [유동성 스테이킹(Liquid Staking)](#유동성-스테이킹liquid-staking)
   - [SuperFluid Staking](#superfluid-staking)
+  - [Wrapped Token](#wrapped-token)
   - [CSMM](#csmm)
   - [CPMM](#cpmm)
   - [Liquidity](#liquidity)
@@ -130,6 +131,18 @@ ___
 - 유동성 공급에 활용된 토큰의 일부를 스테이킹에 활용한다는 개념이다.
 - 유동성 공급에 활용된 토큰은 블록체인 네트워크 보안 향상에 도움이 안되기 때문에 이를 보안하는 개념
 - 이더리움에 스테이킹된 ETH는 이더리움 보안 향상에는 도움이 되지만 유니스왑의 유동성 풀에 들어있는 ETH는 유니스왑 서비스에만 활용되지 이더리움 보안에는 도움이 안된다.
+___
+
+## Wrapped Token
+
+WBTC, WETH를 활용하면 비트코인과 이더리움도 디파이에서 사용할 수 있다.
+
+- WBTC를 사용하는 이유
+  - BTC는 이더리움과 다른 네트워크라 BTC와 1대1 매칭되는 WBTC로 ERC20 토큰 거래에 사용할 수 있다.
+- WETH를 사용하는 이유
+  - ERC20 표준은 ETH 보다 나중에 나온 표준으로 구현자체가 다르다.
+  - ETH는 프로토콜 레벨에서 구현된것으로 SmartContract로 컨트롤 하는 것에는 한계가 있다.
+  - ETH 전송은 가능하지만 approve, allowance 같은 함수는 사용할 수 없다.
 ___
 ## CSMM
 > [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/contracts/Exchange.sol)
