@@ -37,6 +37,9 @@ ___
 
 ---
 ## CPMM
+> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM/contracts/Exchange.sol)
+
+> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM/test/Exchange.ts)
 
 - 두 유동성 곱의 합이 일정한 알고리즘
 - 공식
