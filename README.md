@@ -16,6 +16,7 @@
     - [유동성 공급/제거](#유동성-공급제거)
     - [유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기](#유동성을-공급하는-2가지-상황--제거-시-토큰-돌려받기)
   - [수수료](#수수료)
+  - [인터페이스](#인터페이스)
 ___
 
 ## Defi 개념 및 생태계
@@ -280,3 +281,27 @@ ___
       - 18.75 - 18.632371392722710163 = 약 0.1176
   - 수수료가 없을 때는 스왑 후 A Token 풀에 31.25개가 있지만 수수료 1%를 적용하면 31.3676개로 0.1176개가 추가된다.
   - 이는 LP들이 유동성을 제거했을 때 가져가게 되는 수수료
+___
+
+## 인터페이스
+
+- 호출 대상의 실제 구현체를 알지 못해도 external로 구현된 함수라면 외부에서 호출할 수 있다.
+- 컨트랙트 주소로 함수를 호출할 수 있다.
+- 인터페이스는 다른 Contract의 함수를 호출(연동)할 때 사용한다.
+- 유니스왑 V2 Contract 함수를 인터페이스를 통해 호출하기
+  - Factory Contract 문서
+    - [https://docs.uniswap.org/protocol/v2/reference/smart-contracts/factory](https://docs.uniswap.org/protocol/v2/reference/smart-contracts/factory)
+  - Factory Contract 소스코드
+    - [https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Factory.sol](https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Factory.sol)
+
+```jsx
+interface IUniswap{ 
+      function getPair(address tokenA, address tokenB) external view returns (address pair);
+}
+contract Uniswap {
+    function getPair() public view returns (address) {
+        // 유니스왑 goreli address / WETH goreli / Uniswap goreli
+        return IUniswap(0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f).getPair(0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6,0x69eE4c39246eBe3ac885eF45a92342960a599Fa8);
+    }
+}
+```
