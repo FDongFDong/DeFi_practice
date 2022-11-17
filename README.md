@@ -15,6 +15,7 @@
   - [Liquidity](#liquidity)
     - [유동성 공급/제거](#유동성-공급제거)
     - [유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기](#유동성을-공급하는-2가지-상황--제거-시-토큰-돌려받기)
+  - [수수료](#수수료)
 ___
 
 ## Defi 개념 및 생태계
@@ -232,3 +233,50 @@ ___
 - 유동성 공급 시
   - CPMM에서 xy = k로 k는 함께 증가, 감소하게 된다.
 ___
+
+## 수수료
+> [CPMM_Swap_Fee_Exchange.sol]()
+
+> [CPMM_Swap_Fee_Exchange.ts]()
+- 유동성 공급자들(LP)에게 수수료를 지급하는 방식
+  - ETH
+  - ERC20
+  - LP 토큰
+- 트레이더들에게 수수료를 부과하는 방식
+  - 수수료를 포함한 InputAmount
+  - 수수료를 제한 OutputAmount
+- 유니스왑
+  - LP들에게 ETH, ERC20 모두 보상으로 제공
+  - 트레이더가 지급한 수수료 만큼 유동성 풀의 토큰 개수가 증가한다.
+  - LP들이 유동성을 제거할 때 공급한 개수 보다 많은 토큰을 가져갈 수 있다.
+  - 트레이더는 수수료를 제한 개수만큼 OutputAmount를 받게 된다.
+  - 트레이딩 마다 0.3%의 수수료를 부과한다.
+
+```jsx
+  // 트레이더에게 수수료를 제외하고 토큰을 스왑해준다.
+  function getOutputAmount(uint256 inputAmount, uint256 inputReserve, uint256 outputReserve) public{
+  // 99인 이유는 1%의 수수료를 부과하기 위함(테스트)
+  // 100개의 토큰을 inputAmount로 넣으면 99개의 inputAmount로 OutputAmount를 계산한다.
+  // OutputAmount가 줄어들어 내가 받게되는 토큰의 개수가 줄어든다.
+  // OuputAmount 수수료 만큼 Output에 해당하는 토큰의 Reserve가 증가하는 효과가 있다.
+  uint256 inputAmountWithFee = inputAmount * 99;
+  uint256 numerator = (inputAmountWithFee * outputReserve);
+  uint256 denominator = (inputReserve * 100 + inputAmountWithFee);
+  return numerator / denominator;
+  }
+```
+
+- Ex
+  - ETH: 50, A Token: 50개인 풀에서 ETH30개를 스왑 시 받게되는 토큰의 개수
+    - 수수료가 0일 때
+      - A Token 18.75개극 받게 된다.
+        - Δy = yΔx / x+Δx
+        - Δy = 50 * 30 / 50 + 30
+        - Δy = 18.75
+    - 수수료가 1%일 때
+      - A Token 18.632371392722710163개를 받게된다.
+        - Δy = 50 *30*(100 - 1) / (50 *100) + 30* (100 - 1)
+        - Δy = 18.632371392722710163
+      - 18.75 - 18.632371392722710163 = 약 0.1176
+  - 수수료가 없을 때는 스왑 후 A Token 풀에 31.25개가 있지만 수수료 1%를 적용하면 31.3676개로 0.1176개가 추가된다.
+  - 이는 LP들이 유동성을 제거했을 때 가져가게 되는 수수료
