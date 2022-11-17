@@ -171,18 +171,11 @@ ___
       - transferFrom() 함수를 사용하기 때문에.
   - 유동성 제거는 Exchange Contract에 넣은 나의 지분을 가져오는 것
 
----
-
-## Liquidity 공급/제거
-> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/contracts/Exchange.sol)
-
-> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/test/Exchange.ts)
-
 ___
 ## CPMM
-> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM/contracts/Exchange.sol)
+> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Swap/contracts/Exchange.sol)
 
-> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM/test/Exchange.ts)
+> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Swap/test/Exchange.ts)
 
 - 두 유동성 곱의 합이 일정한 알고리즘
 - 공식
@@ -219,14 +212,14 @@ function getOutputAmount(uint256 inputAmount, uint256 inputReserve, uint256 outp
 ___
 ## Liquidity
 ### 유동성 공급/제거
-> [Liquidity_Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/contracts/Exchange.sol)
+> [Liquidity_Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/contracts/Exchange.sol)
 
-> [Liquidity_Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/test/Exchange.ts)
+> [Liquidity_Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/test/Exchange.ts)
 
 ### 유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기
-> [CPMM_Liquidity_LP_Exchange.sol]()
+> [CPMM_Liquidity_LP_Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Liquidity_LP/contracts/Exchange.sol)
 
-> [CPMM_Liquidity_LP_Exchange.ts]()
+> [CPMM_Liquidity_LP_Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Liquidity_LP/test/Exchange.ts)
 
 - 유동성 공급을 하는 상황 2가지
   - 유동성이 0인 상황
