@@ -53,6 +53,8 @@ ___
   - Δy는 ouput 토큰의 개수
   - input 값인 Δx는 사용자가 입력한 값으로 정해져있다.
   - output 값인 Δy를 구하는 것이 핵심이다.
+- Swap
+  - 사용자가 입력한 inputAmount를 Exchange 컨트랙트로 보내고 이에 상응하는 OutputAmout를 계산해서 호출한 사용자에게 보내주는 것
 
 ```java
 function getPrice(uint256 inputReserve, uint256 outputReserver) public pure returns (uint256) {
