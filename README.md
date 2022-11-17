@@ -165,14 +165,11 @@ ___
       - x + y + Δx - Δy = x + y
       - Δx = Δy
   - 즉, 스왑 시 input으로 넣은 토큰의 개수와 output으로 넣은 토큰의 개수가 같다.
-  
 - 유동성 공급/제거
   - 유동성 공급은 사용자가 가진 토큰을 Exchange Contract로 보내는 것
     - 나의 토큰을 Exchange Contract가 가져가는 것
       - transferFrom() 함수를 사용하기 때문에.
   - 유동성 제거는 Exchange Contract에 넣은 나의 지분을 가져오는 것
-  
-
 
 ---
 
