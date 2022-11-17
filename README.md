@@ -11,8 +11,11 @@
   - [SuperFluid Staking](#superfluid-staking)
   - [Wrapped Token](#wrapped-token)
   - [CSMM](#csmm)
+  - [Liquidity 공급/제거](#liquidity-공급제거)
   - [CPMM](#cpmm)
   - [Liquidity](#liquidity)
+    - [유동성 공급/제거](#유동성-공급제거)
+    - [유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기](#유동성을-공급하는-2가지-상황--제거-시-토큰-돌려받기)
 ___
 
 ## Defi 개념 및 생태계
@@ -91,7 +94,6 @@ ___
   - 단점
     - 스테이블 코인 운영 주체가 불투명하게 운영될 수 있다.(지급 준비금이 불투명 할 수 있음)
     - 탈중앙성이 떨어진다(모든 발행, 소각 권한을 재단에서만 가짐)
-    -
 - 암호 화폐 담보
   - 사용자의 암호화폐를 담보로 잡고 스테이블 코인을 발행한다.
     - 코인을 담보로 제공하고 스테이블 코인을 받는다. 담보 가치가 떨어지면 청산될 수 있다.
@@ -145,9 +147,6 @@ WBTC, WETH를 활용하면 비트코인과 이더리움도 디파이에서 사�
   - ETH 전송은 가능하지만 approve, allowance 같은 함수는 사용할 수 없다.
 ___
 ## CSMM
-> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/contracts/Exchange.sol)
-
-> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/test/Exchange.ts)
 
 - CSMM(Constant Sum Market Maker)은 유동성 풀의 합이 일정한 알고리즘
 - CSMM이 독자적으로 사용되는 디파이 서비스는 없다.
@@ -176,6 +175,13 @@ ___
 
 
 ---
+
+## Liquidity 공급/제거
+> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/contracts/Exchange.sol)
+
+> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity_add_remove/test/Exchange.ts)
+
+___
 ## CPMM
 > [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM/contracts/Exchange.sol)
 
@@ -215,9 +221,15 @@ function getOutputAmount(uint256 inputAmount, uint256 inputReserve, uint256 outp
 ```
 ___
 ## Liquidity
-> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/contracts/Exchange.sol)
+### 유동성 공급/제거
+> [Liquidity_Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/contracts/Exchange.sol)
 
-> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/test/Exchange.ts)
+> [Liquidity_Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/test/Exchange.ts)
+
+### 유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기
+> [CPMM_Liquidity_LP_Exchange.sol]()
+
+> [CPMM_Liquidity_LP_Exchange.ts]()
 
 - 유동성 공급을 하는 상황 2가지
   - 유동성이 0인 상황
