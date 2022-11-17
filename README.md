@@ -145,7 +145,6 @@ WBTC, WETH를 활용하면 비트코인과 이더리움도 디파이에서 사�
   - ETH 전송은 가능하지만 approve, allowance 같은 함수는 사용할 수 없다.
 ___
 ## CSMM
-
 - CSMM(Constant Sum Market Maker)은 유동성 풀의 합이 일정한 알고리즘
 - CSMM이 독자적으로 사용되는 디파이 서비스는 없다.
     - 간단하게 디파이의 수식이 어떻게 계산되는지 알 수 있다.
@@ -163,14 +162,11 @@ ___
       - x + y + Δx - Δy = x + y
       - Δx = Δy
   - 즉, 스왑 시 input으로 넣은 토큰의 개수와 output으로 넣은 토큰의 개수가 같다.
-  
 - 유동성 공급/제거
   - 유동성 공급은 사용자가 가진 토큰을 Exchange Contract로 보내는 것
     - 나의 토큰을 Exchange Contract가 가져가는 것
       - transferFrom() 함수를 사용하기 때문에.
   - 유동성 제거는 Exchange Contract에 넣은 나의 지분을 가져오는 것
-  
-
 
 ---
 ## CPMM
