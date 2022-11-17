@@ -11,7 +11,6 @@
   - [SuperFluid Staking](#superfluid-staking)
   - [Wrapped Token](#wrapped-token)
   - [CSMM](#csmm)
-  - [Liquidity 공급/제거](#liquidity-공급제거)
   - [CPMM](#cpmm)
   - [Liquidity](#liquidity)
     - [유동성 공급/제거](#유동성-공급제거)
