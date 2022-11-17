@@ -13,6 +13,7 @@ contract Exchange is ERC20{
     constructor (address _token) ERC20("FDong Uniswap V2", "FDONG-V2"){
         token = IERC20(_token);
     }
+    // [유동성 공급 함수]
     // _maxToken: Frontend에서 슬리피지가 포함된 값
     function addLiquidity(uint256 _maxToken) public payable {
         // 유동성은 Exchange 컨트랙트에서 전체 발행되어 있는 전체 LP토큰의 개수
@@ -44,7 +45,23 @@ contract Exchange is ERC20{
             // 내가 가진 토큰을 Exchange 컨트랙트에게 보내준다.
             token.transferFrom(msg.sender, address(this), tokenAmount);
         }
-      
+    }
+
+    // [유동성 제거 함수]
+    function removeLiquidity(uint256 _lpTokenAmount) public {
+        // 전체 유동성에 공급된 공급량을 가져온다.
+        uint256 totalLiquidity = totalSupply();
+        // 내가 받을 이더리움 개수 계산
+        // 이더리움이 전체 유동성에서 얼마를 차지하는지 
+        uint256 ethAmount = _lpTokenAmount * address(this).balance / totalLiquidity;
+        // 내가 받게될 토큰의 양
+        uint256 tokenAmount = _lpTokenAmount * token.balanceOf(address(this)) / totalLiquidity;
+        // 소각한다. burn을 먼저 진행하는 것이 재진입 공격을 막는데 좋다.
+        _burn(msg.sender, _lpTokenAmount);
+        // 계산된 이더리움 개수를 보내주고
+        payable(msg.sender).transfer(ethAmount);
+        // 계산된 토큰을 보내준다.
+        token.transfer(msg.sender, tokenAmount);
     }
   
 }

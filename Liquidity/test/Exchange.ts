@@ -46,4 +46,25 @@ describe('Exchange', () => {
       expect(await token.balanceOf(exchange.address)).to.equal(toWei(600));
     });
   });
+
+  describe('removeLiquidity', async () => {
+    it('remove liquidity', async () => {
+      await token.approve(exchange.address, toWei(500));
+      await exchange.addLiquidity(toWei(500), { value: toWei(1000) });
+      expect(await getBalance(exchange.address)).to.equal(toWei(1000));
+      expect(await token.balanceOf(exchange.address)).to.equal(toWei(500));
+
+      await token.approve(exchange.address, toWei(100));
+      await exchange.addLiquidity(toWei(100), { value: toWei(200) });
+      expect(await getBalance(exchange.address)).to.equal(toWei(1200));
+      expect(await token.balanceOf(exchange.address)).to.equal(toWei(600));
+
+      // 유동성 풀에서 이더리움 600개 제거(비율만큼 토큰도 제거된다.)
+      await exchange.removeLiquidity(toWei(600));
+      // 이더리움 1200개 - 600개 = 600개
+      expect(await getBalance(exchange.address)).to.equal(toWei(600));
+      // 토큰 600개 - 300개 = 300개
+      expect(await token.balanceOf(exchange.address)).to.equal(toWei(300));
+    });
+  });
 });
