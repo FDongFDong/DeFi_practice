@@ -293,6 +293,11 @@ ___
     - [https://docs.uniswap.org/protocol/v2/reference/smart-contracts/factory](https://docs.uniswap.org/protocol/v2/reference/smart-contracts/factory)
   - Factory Contract 소스코드
     - [https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Factory.sol](https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Factory.sol)
+- 활용
+  - Dex Aggregator
+  - Price Oracle
+  - FlashLoan
+  
 
 ```jsx
 interface IUniswap{ 
@@ -305,3 +310,4 @@ contract Uniswap {
     }
 }
 ```
+![image](https://user-images.githubusercontent.com/20445415/202432145-fb8e71a2-ca89-4bb6-bd69-515bd365a3a3.png)
