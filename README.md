@@ -145,9 +145,6 @@ WBTC, WETH를 활용하면 비트코인과 이더리움도 디파이에서 사�
   - ETH 전송은 가능하지만 approve, allowance 같은 함수는 사용할 수 없다.
 ___
 ## CSMM
-> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/contracts/Exchange.sol)
-
-> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/test/Exchange.ts)
 
 - CSMM(Constant Sum Market Maker)은 유동성 풀의 합이 일정한 알고리즘
 - CSMM이 독자적으로 사용되는 디파이 서비스는 없다.
