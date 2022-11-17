@@ -3,6 +3,7 @@
 - [DeFi_practice](#defi_practice)
   - [CSMM](#csmm)
   - [CPMM](#cpmm)
+  - [Liquidity](#liquidity)
 ___
 ## CSMM
 > [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/contracts/Exchange.sol)
@@ -73,3 +74,15 @@ function getOutputAmount(uint256 inputAmount, uint256 inputReserve, uint256 outp
   return numerator / denominator
 }
 ```
+___
+## Liquidity
+> [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/contracts/Exchange.sol)
+
+> [Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/Liquidity/test/Exchange.ts)
+
+- 유동성 공급을 하는 상황 2가지
+  - 유동성이 0인 상황
+    - 풀이 처음 만들어진 경우
+  - 유동성이 있는 상황
+    - 추가로 공급하는 경우
+- 유동성을 공급하면 LP 토큰을 받는다.
