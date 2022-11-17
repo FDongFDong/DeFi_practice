@@ -235,9 +235,9 @@ ___
 ___
 
 ## 수수료
-> [CPMM_Swap_Fee_Exchange.sol]()
+> [CPMM_Swap_Fee_Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Swap_Fee/contracts/Exchange.sol)
 
-> [CPMM_Swap_Fee_Exchange.ts]()
+> [CPMM_Swap_Fee_Exchange.ts](https://github.com/FDongFDong/DeFi_practice/blob/main/CPMM_Swap_Fee/test/Exchange.ts)
 - 유동성 공급자들(LP)에게 수수료를 지급하는 방식
   - ETH
   - ERC20
