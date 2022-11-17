@@ -1,7 +1,8 @@
 # DeFi_practice
 
-- [CSMM](#CSMM)
-- [CPMM]()
+- [DeFi_practice](#defi_practice)
+  - [CSMM](#csmm)
+  - [CPMM](#cpmm)
 ___
 ## CSMM
 > [Exchange.sol](https://github.com/FDongFDong/DeFi_practice/blob/main/CSMM/contracts/Exchange.sol)
@@ -32,5 +33,38 @@ ___
       - transferFrom() 함수를 사용하기 때문에.
   - 유동성 제거는 Exchange Contract에 넣은 나의 지분을 가져오는 것
   
+
+
 ---
 ## CPMM
+
+- 두 유동성 곱의 합이 일정한 알고리즘
+- 공식
+  - xy = k
+  - 스왑 후
+  - xy = (x + Δx)(y - Δy)
+    - (x + Δx)(y - Δy) = xy
+    - xy - xΔy + Δxy - ΔxΔy = xy
+    - xy  = xy
+    - Δxy = xΔy + ΔxΔy
+    - yΔx = Δy(x+Δx)
+    - Δy = yΔx / x + Δx
+  - Δx는 input 토큰의 개수
+  - Δy는 ouput 토큰의 개수
+  - input 값인 Δx는 사용자가 입력한 값으로 정해져있다.
+  - output 값인 Δy를 구하는 것이 핵심이다.
+
+```java
+function getPrice(uint256 inputReserve, uint256 outputReserver) public pure returns (uint256) {
+  uint256 numerator = inputReserve;
+  uint256 denominator = outputReserve;
+  return numerator / denominator
+}
+```
+```java
+function getOutputAmount(uint256 inputAmount, uint256 inputReserve, uint256 outputReserver) public pure returns (uint256) {
+  uint256 numerator = (inputAmount * inputReserve);
+  uint256 denominator = (inputReserve + inputAmount);
+  return numerator / denominator
+}
+```
