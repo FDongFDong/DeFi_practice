@@ -1,22 +1,22 @@
-# DeFi_practice
+# DeFi
 
-- [DeFi_practice](#defi_practice)
-  - [Defi 개념 및 생태계](#defi-개념-및-생태계)
-  - [Defi 구성요소](#defi-구성요소)
-  - [AMM과 Swap에 활용되는 로직](#amm과-swap에-활용되는-로직)
-  - [Stable Coin](#stable-coin)
-  - [토큰 예치(Staking)](#토큰-예치staking)
-  - [대출(Lending)](#대출lending)
-  - [유동성 스테이킹(Liquid Staking)](#유동성-스테이킹liquid-staking)
-  - [SuperFluid Staking](#superfluid-staking)
-  - [Wrapped Token](#wrapped-token)
-  - [CSMM](#csmm)
-  - [CPMM](#cpmm)
-  - [Liquidity](#liquidity)
-    - [유동성 공급/제거](#유동성-공급제거)
-    - [유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기](#유동성을-공급하는-2가지-상황--제거-시-토큰-돌려받기)
-  - [수수료](#수수료)
-  - [인터페이스](#인터페이스)
+
+- [Defi 개념 및 생태계](#defi-개념-및-생태계)
+- [Defi 구성요소](#defi-구성요소)
+- [AMM과 Swap에 활용되는 로직](#amm과-swap에-활용되는-로직)
+- [Stable Coin](#stable-coin)
+- [토큰 예치(Staking)](#토큰-예치staking)
+- [대출(Lending)](#대출lending)
+- [유동성 스테이킹(Liquid Staking)](#유동성-스테이킹liquid-staking)
+- [SuperFluid Staking](#superfluid-staking)
+- [Wrapped Token](#wrapped-token)
+- [CSMM](#csmm)
+- [CPMM](#cpmm)
+- [Liquidity](#liquidity)
+  - [유동성 공급/제거](#유동성-공급제거)
+  - [유동성을 공급하는 2가지 상황 / 제거 시 토큰 돌려받기](#유동성을-공급하는-2가지-상황--제거-시-토큰-돌려받기)
+- [수수료](#수수료)
+- [인터페이스](#인터페이스)
 ___
 
 ## Defi 개념 및 생태계
